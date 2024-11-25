@@ -23,7 +23,6 @@ public class MainMenuController {
     private Scene scene;
     private Parent root;
 
-    private FXMLLoader loader;
 
     public void setUserDatabase(HashMap<String, Customer> userDatabase) {
         this.userDatabase = userDatabase;
@@ -39,7 +38,7 @@ public class MainMenuController {
 
     @FXML
     void profileButton(ActionEvent event) throws IOException {
-        loader = new FXMLLoader(getClass().getResource("ProfileDetails.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileDetails.fxml"));
         root = loader.load();
 
         ProfileDetailsController profileController = loader.getController();
@@ -62,14 +61,12 @@ public class MainMenuController {
 
     @FXML
     void customerserviceButton(ActionEvent event) throws IOException {
-        loader = new FXMLLoader(getClass().getResource("ProfileDetails.fxml"));
-        root = loader.load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerService.fxml"));
+        Parent root2 = loader.load();
 
-        ProfileDetailsController profileController = loader.getController();
-        profileController.setCustomerDetails(currentCustomer);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root2);
         stage.setScene(scene);
         stage.show();
     }

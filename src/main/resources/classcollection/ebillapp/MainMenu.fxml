@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classcollection.ebillapp.MainMenuController">
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4249a9f2;">
+      <BorderPane layoutX="-14.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4249a9f2;">
          <left>
             <GridPane prefHeight="360.0" prefWidth="360.0" vgap="6.0" BorderPane.alignment="CENTER">
               <columnConstraints>
