@@ -47,7 +47,15 @@ public class LoginController {
                 loginStatus.setVisible(true);
                 loginStatus.setText("Login Successfully");
 
-                PauseTransition pause = getPauseTransition(loggedInCustomer);
+                HelloApplication mainApp =  new HelloApplication();
+                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                pause.setOnFinished(e->{
+                    try{
+                        mainApp.changeScene("MainMenu.fxml");
+                    }catch (IOException ex){
+                        throw new RuntimeException(ex);
+                    }
+                });
                 pause.play();
 
             } else {
