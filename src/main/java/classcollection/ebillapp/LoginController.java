@@ -47,7 +47,15 @@ public class LoginController {
                 loginStatus.setVisible(true);
                 loginStatus.setText("Login Successfully");
 
-                PauseTransition pause = getPauseTransition(loggedInCustomer);
+                HelloApplication mainApp =  new HelloApplication();
+                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                pause.setOnFinished(e->{
+                    try{
+                        mainApp.changeScene("MainMenu.fxml");
+                    }catch (IOException ex){
+                        throw new RuntimeException(ex);
+                    }
+                });
                 pause.play();
 
             } else {
@@ -62,27 +70,7 @@ public class LoginController {
         }
     }
 
-    private PauseTransition getPauseTransition(Customer customer) {
-        PauseTransition pause = new PauseTransition(Duration.seconds(2));
-        pause.setOnFinished(e -> {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
-                Parent root = fxmlLoader.load();
 
-                MainMenuController controller = fxmlLoader.getController();
-                controller.setUserDatabase(userDatabase); // Pass the user database
-                controller.setCurrentCustomer(customer); // Pass the current customer
-
-                Stage stage = (Stage) loginStatus.getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
-        return pause;
-    }
 
     private void readcustomerData() {
         try {
