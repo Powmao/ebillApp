@@ -8,12 +8,24 @@ public class Customer {
     private String address;
     private int customerId;
 
-    public Customer(String fullName,String username, String password, int Id, String Address) {
+    // Private static instance
+    private static Customer instance;
+
+    // Private constructor
+    Customer(String fullName, String username, String password, int customerId, String address) {
         this.fullName = fullName;
         this.username = username;
         this.password = password;
-        this.customerId = Id;
-        this.address = Address;
+        this.customerId = customerId;
+        this.address = address;
+    }
+
+    // Public static method to get the instance
+    public static Customer getInstance(String fullName, String username, String password, int customerId, String address) {
+        if (instance == null) {
+            instance = new Customer(fullName, username, password, customerId, address);
+        }
+        return instance;
     }
 
     public String getUsername() {
@@ -35,6 +47,4 @@ public class Customer {
     public int getCustomerId() {
         return customerId;
     }
-
-    // Getters and Setters
 }

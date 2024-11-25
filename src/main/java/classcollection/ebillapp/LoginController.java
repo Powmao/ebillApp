@@ -4,6 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -11,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,10 +43,11 @@ public class LoginController {
 
         if (userDatabase.containsKey(username)) {
             if (userDatabase.get(username).getPassword().equals(password)) {
+                Customer loggedInCustomer = userDatabase.get(username);
                 loginStatus.setVisible(true);
                 loginStatus.setText("Login Successfully");
 
-                PauseTransition pause = getPauseTransition();
+                PauseTransition pause = getPauseTransition(loggedInCustomer);
                 pause.play();
 
             } else {
@@ -61,13 +62,19 @@ public class LoginController {
         }
     }
 
-    private PauseTransition getPauseTransition() {
+    private PauseTransition getPauseTransition(Customer customer) {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(e -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
+                Parent root = fxmlLoader.load();
+
+                MainMenuController controller = fxmlLoader.getController();
+                controller.setUserDatabase(userDatabase); // Pass the user database
+                controller.setCurrentCustomer(customer); // Pass the current customer
+
                 Stage stage = (Stage) loginStatus.getScene().getWindow();
+                Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException ex) {
@@ -95,9 +102,8 @@ public class LoginController {
                 int customerId = Integer.parseInt((data[3]));
                 String customerAddress = data[4];
 
-
-                // Create a Pokemon object and add it to your collection
-                Customer profile = new Customer(fullName, userName, password,  customerId,  customerAddress);
+                // Create a Customer object and add it to your collection
+                Customer profile = new Customer(fullName, userName, password, customerId, customerAddress);
                 userDatabase.put(profile.getUsername(), profile);
             }
             fileScanner.close();
@@ -108,6 +114,4 @@ public class LoginController {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
     }
-
-
 }
