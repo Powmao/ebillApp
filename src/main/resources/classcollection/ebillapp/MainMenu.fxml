@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classcollection.ebillapp.MainMenuController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classcollection.ebillapp.MainMenuController">
    <children>
       <BorderPane layoutX="-14.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4249a9f2;">
          <left>
@@ -29,9 +29,9 @@
                   <Insets bottom="100.0" left="120.0" top="100.0" />
                </BorderPane.margin>
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#transactionButton" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e28936f2;">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#transactionButton" onMouseClicked="#transactionButton" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e28936f2;">
                      <graphic>
-                        <ImageView fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="160.0" fitWidth="160.0" onMouseClicked="#transactionButton" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../TransactionRecords.png" />
                            </image>

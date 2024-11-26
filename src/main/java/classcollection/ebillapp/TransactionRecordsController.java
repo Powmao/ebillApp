@@ -1,12 +1,16 @@
 package classcollection.ebillapp;
 
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -15,40 +19,50 @@ public class TransactionRecordsController {
 
     @FXML
     private BorderPane borderPane;
+
     @FXML
-    private TreeView<String> profileTreeView;
-
-    private Customer currentCustomer;
-    @FXML
-    public void initialize() {
-        initializeTreeView();
-
-    }
-
-
-    private void initializeTreeView() {
-        TreeItem<String> rootItem = new TreeItem<>("Customer Profile");
-        rootItem.setExpanded(true);
-
-        TreeItem<String> billingInfoItem = new TreeItem<>("Billing Information");
-        TreeItem<String> usageDataItem = new TreeItem<>("Usage Data");
-        TreeItem<String> basicInformation = new TreeItem<>("Basic Information");
-
-        rootItem.getChildren().addAll(billingInfoItem, usageDataItem, basicInformation);
-
-        profileTreeView.setRoot(rootItem);
+    private void Return(){
+        HelloApplication mainApp =  new HelloApplication();
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+        pause.setOnFinished(e->{
+            try{
+                mainApp.changeScene("MainMenu.fxml");
+            }catch (IOException ex){
+                throw new RuntimeException(ex);
+            }
+        });
+        pause.play();
     }
 
     @FXML
-    void selectItem(MouseEvent event) throws IOException {
-        TreeItem<String> item = profileTreeView.getSelectionModel().getSelectedItem();
-        if (item != null && "Basic Information".equals(item.getValue())) {
+    private void ViewInfo() {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/classcollection/ebillapp/TransactionInfo.fxml"));
             Parent view = loader.load();
 
-            BasicInformationController controller = loader.getController();
-            controller.setCustomer(currentCustomer);
+
+
             borderPane.setCenter(view);
+        } catch (IOException e) {
+            e.printStackTrace(); // Log error details for debugging
+            showErrorAlert("TransactionInfo.fxml", e);
         }
     }
+
+    /**
+     * Utility method to show an error alert.
+     */
+    private void showErrorAlert(String fileName, Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Failed to Load FXML");
+        alert.setContentText("Could not load " + fileName + ".\n" + e.getMessage());
+        alert.showAndWait();
+    }
+
+
+
+
+
+
 }
