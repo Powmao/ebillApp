@@ -75,8 +75,27 @@ public class MainMenuController {
     }
 
     @FXML
-    void transactionButton(ActionEvent event) {
+    void transactionButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Transaction.fxml"));
+        Parent root2 = loader.load();
 
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root2);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void paymentButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Payments.fxml"));
+        Parent root2 = loader.load();
+
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root2);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void setCurrentTansaction(LinkedList<TransactionHistory> records) {

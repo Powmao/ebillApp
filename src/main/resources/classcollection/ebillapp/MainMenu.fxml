@@ -42,11 +42,11 @@
                      <graphic>
                         <ImageView fitHeight="160.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../ProfileIcon.png" />
+                              <Image url="@../../Profileicon.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button mnemonicParsing="false" onAction="#billsandpaymentsButton" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e28936f2;" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#paymentButton" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #e28936f2;" GridPane.rowIndex="1">
                      <graphic>
                         <ImageView fitHeight="160.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
                            <image>
