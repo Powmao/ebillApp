@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classcollection.ebillapp.CustomerServiceController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #0d0e54;">
@@ -23,17 +22,18 @@
          <center>
             <VBox alignment="CENTER" prefHeight="546.0" prefWidth="598.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="TicketNumber" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" text="Label" textAlignment="JUSTIFY" textFill="WHITE">
+                  <Label fx:id="ticketNumber" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" text="Label" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#generateTicket" prefHeight="26.0" prefWidth="286.0" text="Generate Ticket" />
+                  <Button fx:id="GenerateTicketButton" mnemonicParsing="false" onAction="#generateTicket" prefHeight="26.0" prefWidth="286.0" text="Generate Ticket" />
+                  <Button fx:id="ReturnButton" mnemonicParsing="false" onAction="#returnButton" text="Return" />
                </children>
             </VBox>
          </center>
          <left>
-            <TextArea fx:id="TextArea" editable="false" prefHeight="546.0" prefWidth="260.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="textArea" editable="false" prefHeight="546.0" prefWidth="260.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
             <Label lineSpacing="10.0" prefHeight="633.0" prefWidth="200.0" text="Instructions: Click the button to recieved a ticket a wait for your ticket to be called" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">

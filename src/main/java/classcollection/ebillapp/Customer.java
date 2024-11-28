@@ -8,10 +8,8 @@ public class Customer {
     private String address;
     private int customerId;
 
-    // Private static instance
     private static Customer instance;
 
-    // Private constructor
     Customer(String fullName, String username, String password, int customerId, String address) {
         this.fullName = fullName;
         this.username = username;
@@ -20,7 +18,6 @@ public class Customer {
         this.address = address;
     }
 
-    // Public static method to get the instance
     public static Customer getInstance(String fullName, String username, String password, int customerId, String address) {
         if (instance == null) {
             instance = new Customer(fullName, username, password, customerId, address);

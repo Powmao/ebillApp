@@ -16,11 +16,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class LoginController {
 
     private HashMap<String, Customer> userDatabase = new HashMap<>();
+
+    LinkedList<TransactionHistory> records = new LinkedList<>();
 
     @FXML
     private TextField Name;
@@ -47,11 +50,20 @@ public class LoginController {
                 loginStatus.setVisible(true);
                 loginStatus.setText("Login Successfully");
 
-                HelloApplication mainApp =  new HelloApplication();
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(e->{
                     try{
-                        mainApp.changeScene("MainMenu.fxml");
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+                        Parent root = loader.load();
+                        MainMenuController mainMenuController = loader.getController();
+                        mainMenuController.setCurrentCustomer(loggedInCustomer);
+                        mainMenuController.setUserDatabase(userDatabase);
+                        mainMenuController.setCurrentTansaction(records);
+
+                        Stage stage = (Stage) loginStatus.getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
                     }catch (IOException ex){
                         throw new RuntimeException(ex);
                     }
@@ -90,9 +102,18 @@ public class LoginController {
                 int customerId = Integer.parseInt((data[3]));
                 String customerAddress = data[4];
 
+                int month = Integer.parseInt(data[5]);
+                String duedate = data[6];
+                int consumption = Integer.parseInt(data[7]);
+                double amount = Double.parseDouble(data[8]);
+                double amountDue = Double.parseDouble(data[9]);
+                String status = data[10];
+
                 // Create a Customer object and add it to your collection
                 Customer profile = new Customer(fullName, userName, password, customerId, customerAddress);
+                addTransaction(new TransactionHistory(month, duedate, consumption, amount, amountDue, status));
                 userDatabase.put(profile.getUsername(), profile);
+
             }
             fileScanner.close();
             System.out.println("File read successfully.");
@@ -101,5 +122,8 @@ public class LoginController {
         } catch (Exception e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
+    }
+    public void addTransaction(TransactionHistory transactionHistory){
+        records.add(transactionHistory);
     }
 }

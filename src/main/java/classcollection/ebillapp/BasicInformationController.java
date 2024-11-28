@@ -31,7 +31,7 @@ public class BasicInformationController {
 
     public void initData(){
         selectedCustomer = customer;
-        customerName.setText("testing");
+        customerName.setText(customer.getFullName());
         customerUsername.setText(customer.getUsername());
         customerPassword.setText(customer.getPassword());
         customerID.setText(String.valueOf(customer.getCustomerId()));

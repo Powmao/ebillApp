@@ -1,13 +1,16 @@
 package classcollection.ebillapp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -19,6 +22,10 @@ public class ProfileDetailsController {
     private TreeView<String> profileTreeView;
 
     private Customer currentCustomer;
+
+    private Stage stage;
+    private Scene scene;
+
     @FXML
     public void initialize() {
         initializeTreeView();
@@ -52,7 +59,24 @@ public class ProfileDetailsController {
 
             BasicInformationController controller = loader.getController();
             controller.setCustomer(currentCustomer);
-            borderPane.setCenter(view); // Use setCenter instead of setAll for BorderPane
+            borderPane.setCenter(view);
         }
+    }
+
+    @FXML
+    void returnButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
+        Parent root2 = loader.load();
+
+        MainMenuController controller = loader.getController();
+        controller.setCurrentCustomer(currentCustomer);
+
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root2);
+        stage.setScene(scene);
+        stage.show();
+
+
     }
 }

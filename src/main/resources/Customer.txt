@@ -1,2 +1,2 @@
-Aaron_Mark_Gregorio,Gregorio,password1,12215384,Address
-Teo_Shunning,Teo,2,5321,Sweden
+Aaron_Mark_Gregorio,Gregorio,password1,12215384,Address,5,December,300,10000,0,Paid
+Teo_Shunning,Teo,2,5321,Sweden,2,November,512,3649,1000,Pending
