@@ -14,6 +14,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class MainMenuController {
     private HashMap<String, Customer> userDatabase;
@@ -75,15 +76,9 @@ public class MainMenuController {
 
     @FXML
     void transactionButton(ActionEvent event) {
-        HelloApplication mainApp =  new HelloApplication();
-        PauseTransition pause = new PauseTransition(Duration.seconds(1));
-        pause.setOnFinished(e->{
-            try{
-                mainApp.changeScene("Transaction.fxml");
-            }catch (IOException ex){
-                throw new RuntimeException(ex);
-            }
-        });
-        pause.play();
+
+    }
+
+    public void setCurrentTansaction(LinkedList<TransactionHistory> records) {
     }
 }

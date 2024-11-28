@@ -1,1 +1,1 @@
-Monthly,Due-Date,Date-Paid,Consumption,Status,Amount,Amount-after-Due
+Month,Due-Date,Date-Paid,Consumption,Status,Amount,Amount-after-Due
