@@ -15,6 +15,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -39,6 +40,7 @@ public class CustomerServiceController {
     private Scene scene;
 
     Customer currentCustomer;
+    LinkedList<TransactionHistory> currenRecord;
 
     @FXML
     public void initialize() {
@@ -93,7 +95,7 @@ public class CustomerServiceController {
 
     private void generatePresetQueue() {
         for (int i = 0; i < 10; i++) {
-            int randomNum = (int) (Math.random() * 101);  // 0 to 100
+            int randomNum = (int) (Math.random() * 101);
             pq.add(randomNum);
         }
     }
@@ -105,6 +107,7 @@ public class CustomerServiceController {
 
         MainMenuController controller = loader.getController();
         controller.setCurrentCustomer(currentCustomer);
+        controller.setCurrentTransaction(currenRecord);
 
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -132,5 +135,9 @@ public class CustomerServiceController {
                 }
             });
         }
+    }
+
+    public void setCurrentTransaction(LinkedList<TransactionHistory> currentTransaction) {
+        this.currenRecord = currentTransaction;
     }
 }

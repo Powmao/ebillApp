@@ -22,47 +22,29 @@ public class TransactionHistory {
         return month;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
 
     public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
 
     public int getConsumption() {
         return consumption;
     }
 
-    public void setConsumption(int consumption) {
-        this.consumption = consumption;
+
+    public int getAmount() {
+        return (int) amount;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
 
     public double getAmountDue() {
         return amountDue;
     }
 
-    public void setAmountDue(double amountDue) {
-        this.amountDue = amountDue;
-    }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

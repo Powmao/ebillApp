@@ -44,12 +44,24 @@ public class TransactionRecordsDisplay {
 
 
     }
-    public void initData(){
-        TransactionHistory details = records.get(0);
+    public void initData() {
+        if (!records.isEmpty()) {
+            TransactionHistory details = records.get(0);
 
-        Amount.setText(String.valueOf(records.get(0)));
-        Consumption.setText(String.valueOf(records.get(1)));
-
-
+            Amount.setText(String.valueOf(details.getAmount()));
+            Consumption.setText(String.valueOf(details.getConsumption()));
+            Monthly.setText(String.valueOf(details.getMonth()));
+            amountDue.setText(String.valueOf(details.getAmountDue()));
+            dueDate.setText(String.valueOf(details.getDueDate()));
+            paidStatus.setText(details.getStatus());
+        } else {
+            Amount.setText("No data available");
+            Consumption.setText("No data available");
+            Monthly.setText("No data available");
+            amountDue.setText("No data available");
+            dueDate.setText("No data available");
+            paidStatus.setText("No data available");
+        }
     }
+
 }

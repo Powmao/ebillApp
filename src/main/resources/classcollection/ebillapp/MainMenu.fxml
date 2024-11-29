@@ -11,10 +11,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classcollection.ebillapp.MainMenuController">
+<AnchorPane prefHeight="600.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classcollection.ebillapp.MainMenuController">
    <children>
-      <BorderPane layoutX="-14.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4249a9f2;">
+      <BorderPane layoutX="-14.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #050b61f2;">
          <left>
             <GridPane prefHeight="360.0" prefWidth="360.0" vgap="6.0" BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -66,7 +67,7 @@
             </GridPane>
          </left>
          <top>
-            <Label alignment="BOTTOM_CENTER" prefHeight="41.0" prefWidth="1052.0" style="-fx-background-color: #0d0e54;" text="Main Menu" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
+            <Label alignment="BOTTOM_CENTER" prefHeight="41.0" prefWidth="1012.0" style="-fx-background-color: #0d0e54;" text="Main Menu" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
@@ -78,23 +79,10 @@
          <right>
             <ImageView fitHeight="538.0" fitWidth="200.0" pickOnBounds="true" BorderPane.alignment="TOP_CENTER">
                <image>
-                  <Image url="@../../AdvertisementIcon.gif" />
+                  <Image url="@../../Ad.gif" />
                </image>
             </ImageView>
          </right>
-         <center>
-            <Label contentDisplay="BOTTOM" lineSpacing="30.0" prefHeight="271.0" prefWidth="273.0" style="-fx-background-color: #113d8df2;" text="For more information about your customer account other billing related concerns, please check individual questions  " textAlignment="JUSTIFY" textFill="#b8621c" wrapText="true" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="ArtifaktElement-Black" size="15.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </Label>
-         </center>
          <bottom>
             <Label alignment="TOP_CENTER" prefHeight="20.0" prefWidth="1038.0" style="-fx-background-color: #0d0e54;" text="How can we serve you today?" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
                <font>
@@ -105,6 +93,17 @@
                </BorderPane.margin>
             </Label>
          </bottom>
+         <center>
+            <AnchorPane prefHeight="416.0" prefWidth="320.0" style="-fx-background-color: #a5a9d429;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="#ffbb00" layoutX="20.0" layoutY="165.0" lineSpacing="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For more information about your customer account other billing related concerns, please check individual questions  " wrappingWidth="281.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center>
       </BorderPane>
       <Button mnemonicParsing="false" onAction="#exitButton" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #1bacb1;" text="Exit" textFill="WHITE">
          <font>

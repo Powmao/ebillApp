@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -22,32 +23,47 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" text="Full_name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="352.0" style="-fx-border-color: white;" text="Full_name" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label text="Username" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="362.0" style="-fx-border-color: white;" text="Username" textAlignment="JUSTIFY" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label text="Password" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="379.0" style="-fx-border-color: white;" text="Password" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label text="Customer Id no." textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="373.0" style="-fx-border-color: white;" text="Customer Id no." textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="customerName" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label fx:id="customerUsername" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="customerPassword" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="customerID" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Label text="Address" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Label fx:id="customerName" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="customerUsername" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="customerPassword" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="customerID" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="365.0" style="-fx-border-color: white;" text="Address" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="addressLabel" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label fx:id="addressLabel" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
          </children>
       </GridPane>
       <Label alignment="CENTER" prefHeight="48.0" prefWidth="700.0" style="-fx-background-color: White;" text="Customer Details" textAlignment="JUSTIFY">
@@ -56,4 +72,7 @@
          </font>
       </Label>
    </children>
+   <effect>
+      <InnerShadow />
+   </effect>
 </AnchorPane>

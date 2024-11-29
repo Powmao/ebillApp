@@ -18,12 +18,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public void changeScene(String fxml) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
-        window.getScene().setRoot(fxmlLoader.load());
-
-    }
 
     public static void main(String[] args) {
         launch();

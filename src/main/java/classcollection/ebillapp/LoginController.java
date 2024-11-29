@@ -23,7 +23,8 @@ public class LoginController {
 
     private HashMap<String, Customer> userDatabase = new HashMap<>();
 
-    LinkedList<TransactionHistory> records = new LinkedList<>();
+    private LinkedList<TransactionHistory> records = new LinkedList<>();
+
 
     @FXML
     private TextField Name;
@@ -37,6 +38,7 @@ public class LoginController {
     @FXML
     public void initialize() {
         readcustomerData();
+
     }
 
     @FXML
@@ -58,7 +60,9 @@ public class LoginController {
                         MainMenuController mainMenuController = loader.getController();
                         mainMenuController.setCurrentCustomer(loggedInCustomer);
                         mainMenuController.setUserDatabase(userDatabase);
-                        mainMenuController.setCurrentTansaction(records);
+                        mainMenuController.setCurrentTransaction(records);
+
+
 
                         Stage stage = (Stage) loginStatus.getScene().getWindow();
                         stage.setScene(new Scene(root));
@@ -113,6 +117,7 @@ public class LoginController {
                 Customer profile = new Customer(fullName, userName, password, customerId, customerAddress);
                 addTransaction(new TransactionHistory(month, duedate, consumption, amount, amountDue, status));
                 userDatabase.put(profile.getUsername(), profile);
+
 
             }
             fileScanner.close();

@@ -23,38 +23,56 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER" text="Month" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <Label alignment="CENTER" prefHeight="29.0" prefWidth="200.0" style="-fx-border-color: White;" text="Month" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label text="Due-Date" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                <Label alignment="CENTER" prefWidth="200.0" style="-fx-border-color: White;" text="Due-Date" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label text="Consumption" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                <Label alignment="CENTER" prefWidth="200.0" style="-fx-border-color: White;" text="Consumption" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label text="Amount" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                <Label alignment="CENTER" prefWidth="200.0" style="-fx-border-color: White;" text="Amount" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label text="Amount after Due" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                <Label alignment="CENTER" prefWidth="200.0" style="-fx-border-color: White;" text="Amount after Due" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-            <Label text="Status" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefWidth="200.0" style="-fx-border-color: White;" text="Status" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="Monthly" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Label fx:id="dueDate" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="31.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="Consumption" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="90.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="Amount" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="150.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Label fx:id="amountDue" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="209.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Label fx:id="paidStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="268.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label fx:id="Monthly" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="dueDate" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="31.0" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="Consumption" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="90.0" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="Amount" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="150.0" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="amountDue" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="209.0" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label fx:id="paidStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="268.0" text="Label" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
             </children>
         </GridPane>
         <Label alignment="CENTER" prefHeight="48.0" prefWidth="700.0" style="-fx-background-color: White;" text="Customer Details" textAlignment="JUSTIFY">

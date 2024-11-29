@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class ProfileDetailsController {
 
@@ -22,6 +23,7 @@ public class ProfileDetailsController {
     private TreeView<String> profileTreeView;
 
     private Customer currentCustomer;
+    private LinkedList<TransactionHistory> currenRecord;
 
     private Stage stage;
     private Scene scene;
@@ -36,13 +38,16 @@ public class ProfileDetailsController {
         this.currentCustomer = customer;
         initializeTreeView();
     }
+    public void setCurrentRecord(LinkedList<TransactionHistory> record) {
+        this.currenRecord = record;
+    }
 
     private void initializeTreeView() {
         TreeItem<String> rootItem = new TreeItem<>("Customer Profile");
         rootItem.setExpanded(true);
 
-        TreeItem<String> billingInfoItem = new TreeItem<>("Billing Information");
-        TreeItem<String> usageDataItem = new TreeItem<>("Usage Data");
+        TreeItem<String> billingInfoItem = new TreeItem<>("Sample Information");
+        TreeItem<String> usageDataItem = new TreeItem<>("Sample Information");
         TreeItem<String> basicInformation = new TreeItem<>("Basic Information");
 
         rootItem.getChildren().addAll(billingInfoItem, usageDataItem, basicInformation);
@@ -54,7 +59,7 @@ public class ProfileDetailsController {
     void selectItem(MouseEvent event) throws IOException {
         TreeItem<String> item = profileTreeView.getSelectionModel().getSelectedItem();
         if (item != null && "Basic Information".equals(item.getValue())) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/classcollection/ebillapp/BasicInformation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BasicInformation.fxml"));
             Parent view = loader.load();
 
             BasicInformationController controller = loader.getController();
@@ -70,7 +75,7 @@ public class ProfileDetailsController {
 
         MainMenuController controller = loader.getController();
         controller.setCurrentCustomer(currentCustomer);
-
+        controller.setCurrentTransaction(currenRecord);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root2);
