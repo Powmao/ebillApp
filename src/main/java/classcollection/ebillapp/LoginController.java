@@ -41,6 +41,7 @@ public class LoginController {
 
     }
 
+
     @FXML
     void loginButton(ActionEvent event) {
         String username = Name.getText();
@@ -53,8 +54,14 @@ public class LoginController {
                 loginStatus.setText("Login Successfully");
 
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
-                pause.setOnFinished(e->{
-                    try{
+                pause.setOnFinished(e -> {
+                    try {
+                        // Debugging information
+                        System.out.println("Loading MainMenu.fxml...");
+                        System.out.println("Logged in customer: " + loggedInCustomer.getUsername());
+                        System.out.println("User database size: " + userDatabase.size());
+                        System.out.println("Records size: " + records.size());
+
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
                         Parent root = loader.load();
                         MainMenuController mainMenuController = loader.getController();
@@ -62,13 +69,12 @@ public class LoginController {
                         mainMenuController.setUserDatabase(userDatabase);
                         mainMenuController.setCurrentTransaction(records);
 
-
-
                         Stage stage = (Stage) loginStatus.getScene().getWindow();
                         stage.setScene(new Scene(root));
                         stage.show();
 
-                    }catch (IOException ex){
+                    } catch (IOException ex) {
+                        System.err.println("Failed to load MainMenu.fxml: " + ex.getMessage());
                         throw new RuntimeException(ex);
                     }
                 });
